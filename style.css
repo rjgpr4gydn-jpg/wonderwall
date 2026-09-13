@@ -1,0 +1,420 @@
+@charset "UTF-8";
+
+/* =======================================================
+   Variables（カラーパレットと設定）
+======================================================= */
+:root {
+    --color-primary: #2e7d32;      /* メインの緑（安心・自然） */
+    --color-primary-light: #e8f5e9;/* 薄い緑（背景用） */
+    --color-accent: #f57c00;       /* 温かみのあるオレンジ（強調用） */
+    --color-text: #2c3e50;         /* 読みやすい濃いグレー */
+    --color-bg: #fcfbf9;           /* 優しいアイボリーの背景色 */
+    --color-white: #ffffff;
+    --color-border: #e0e0e0;
+
+    --font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+}
+
+/* =======================================================
+   Reset
+======================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* =======================================================
+   Layout & Common
+======================================================= */
+.l-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.l-section {
+    padding: 70px 0;
+}
+
+.c-heading {
+    font-size: 26px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--color-primary);
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.c-heading::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 4px;
+    background-color: var(--color-accent);
+    border-radius: 2px;
+}
+
+.c-button {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.c-button:hover {
+    transform: translateY(-2px);
+    background-color: #e66900;
+}
+
+/* 表（テーブル）のデザイン */
+.c-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.c-table th, .c-table td {
+    padding: 18px 20px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.c-table th {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    width: 30%;
+    font-weight: bold;
+}
+
+/* チェックリスト */
+.c-check-list {
+    background-color: var(--color-white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.c-check-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    font-size: 17px;
+}
+
+.c-check-list li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* =======================================================
+   Header
+======================================================= */
+.l-header {
+    background-color: var(--color-white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.l-header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 75px;
+}
+
+.l-header__brand {
+    display: flex;
+    flex-direction: column;
+}
+
+.l-header__company {
+    font-size: 12px;
+    color: #666;
+}
+
+.l-header__title {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.l-header__list {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.l-header__link {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.l-header__link:hover {
+    color: var(--color-primary);
+}
+
+/* =======================================================
+   Hero
+======================================================= */
+.p-hero {
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.p-hero__badge {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.p-hero__subtitle {
+    display: block;
+    font-size: 16px;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+}
+
+.p-hero__title {
+    font-size: 34px;
+    margin-bottom: 15px;
+    color: #1b5e20;
+}
+
+.p-hero__lead {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* =======================================================
+   Features（おすすめポイント）
+======================================================= */
+.p-features__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.p-features__card {
+    background-color: var(--color-white);
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-top: 5px solid var(--color-primary);
+}
+
+.p-features__icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.p-features__card-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--color-primary);
+}
+
+/* =======================================================
+   Services & Cost
+======================================================= */
+.p-services__list {
+    background: var(--color-white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.p-services__item {
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--color-border);
+}
+
+.p-services__item:last-child {
+    border-bottom: none;
+}
+
+.p-cost__notice {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.p-cost__highlight {
+    display: inline-block;
+    background-color: #fff3e0;
+    color: var(--color-accent);
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 1px solid #ffe0b2;
+}
+
+/* 写真枠 */
+.p-overview__photo-space {
+    margin-top: 30px;
+    background-color: #eee;
+    border: 2px dashed #ccc;
+    padding: 40px;
+    text-align: center;
+    color: #777;
+    border-radius: 8px;
+}
+
+/* =======================================================
+   Network（事業所一覧）
+======================================================= */
+.p-network__company {
+    background-color: var(--color-white);
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    border-left: 6px solid var(--color-primary);
+}
+
+.p-network__subheading {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.p-network__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.p-network__card {
+    background-color: var(--color-white);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    position: relative;
+}
+
+.p-network__card--active {
+    border: 2px solid var(--color-primary);
+    background-color: #f1f8e9;
+}
+
+.p-network__tag {
+    display: inline-block;
+    font-size: 12px;
+    background-color: #76ff03;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.p-network__card h4 {
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.p-network__card p {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.p-network__access {
+    color: #666;
+    font-size: 13px;
+}
+
+/* =======================================================
+   Contact & Footer
+======================================================= */
+.p-contact {
+    background-color: var(--color-white);
+    text-align: center;
+}
+
+.p-contact__text {
+    margin-bottom: 30px;
+}
+
+.p-contact__box {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    background-color: var(--color-primary-light);
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.p-contact__label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.p-contact__tel {
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.p-contact__fax {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.l-footer {
+    background-color: #263238;
+    color: #fff;
+    text-align: center;
+    padding: 25px 0;
+    font-size: 14px;
+}
+
+/* スマホ対応 */
+@media screen and (max-width: 768px) {
+    .l-header__list { display: none; }
+    .p-hero__title { font-size: 24px; }
+    .p-contact__box { flex-direction: column; gap: 20px; }
+    .c-table th, .c-table td { display: block; width: 100%; }
+    .c-table th { border-bottom: none; }
+}
